@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 
-/* 
-1. Zadeklaruj status stringa do sprawdzenia, opoznienia 
-2. Napisz funkcje sprawdzajaca na ile string jest odpowedniej dl  
-3. Jesli string spelnia oczekiwania wyswietl odpowedni kompunikat
-4. Napisz funkcje pobierajaca czas z pola tekstowego
-*/
 
 function DynamicDelayActionWithNumber(){
+	
+    const differentStyles = {
+        go : {
+            border: '2px solid #3498db',
+            borderRadius: '10px',
+            backgroundColor: '#fff',
+            color: '#3498db'
+        },
 
-    const [specialNumer, setSpecialNumber] = useState(10);
+        inputField : {
+            outline: 'none',
+            borderColor: '#ff97d3',
+            boxShadow: 'inset #ffaadb 0 1px 4px'
+            }
+    }
+
+	const [specialNumer, setSpecialNumber] = useState(10);
     const [timeOfDur, setTimeOfDur] = useState(2500);
 
     function checkSpecificNumber(){
@@ -36,13 +45,15 @@ function DynamicDelayActionWithNumber(){
     }
 
     return(
+	<body>
         <div>
             <p>The state Value : {specialNumer}</p>
             <label>
-                <input type="text" value={timeOfDur} onChange={takeTheData}></input>
+                <input type="text" value={timeOfDur} onChange={takeTheData} style={differentStyles.inputField}></input>
             </label>
-            <button onClick={checkSpecificNumber}>Trigger The Action</button>
+            <button onClick={checkSpecificNumber} style={differentStyles.go}>Trigger The Action</button>
         </div>
+	</body>
     )
 }
 
